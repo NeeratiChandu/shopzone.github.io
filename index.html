@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopZone — Best Deals on Amazon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Righteous&display=swap" rel="stylesheet">
+<style>
+:root {
+  --yellow:   #FFD600;
+  --orange:   #FF6B35;
+  --pink:     #FF3CAC;
+  --blue:     #2196F3;
+  --green:    #00C853;
+  --purple:   #7C4DFF;
+  --teal:     #00BCD4;
+  --red:      #FF1744;
+  --bg:       #FFF8F0;
+  --white:    #FFFFFF;
+  --dark:     #1A1A2E;
+  --text:     #2D2D3A;
+  --muted:    #7A7A9A;
+  --card-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  --radius:   18px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Nunito', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ===== TOPBAR ===== */
+.topbar {
+  background: linear-gradient(90deg, var(--pink), var(--orange), var(--yellow));
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  animation: slidein 0.6s ease both;
+}
+
+/* ===== NAV ===== */
+nav {
+  background: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 60px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+  animation: slidein 0.6s 0.1s ease both;
+}
+
+.logo {
+  font-family: 'Righteous', sans-serif;
+  font-size: 2rem;
+  background: linear-gradient(135deg, var(--pink), var(--orange), var(--yellow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 1px;
+}
+
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--orange); }
+
+.nav-cta {
+  background: linear-gradient(135deg, var(--orange), var(--pink));
+  color: #fff !important;
+  padding: 10px 24px;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(255,107,53,0.4);
+  transition: transform 0.2s, box-shadow 0.2s !important;
+}
+.nav-cta:hover { transform: translateY(-2px) !important; box-shadow: 0 8px 25px rgba(255,107,53,0.5) !important; }
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(135deg, #FFF8F0 0%, #FFF0E6 50%, #FFE8F5 100%);
+  padding: 80px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,214,0,0.25) 0%, transparent 70%);
+  top: -200px; right: -100px;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,60,172,0.15) 0%, transparent 70%);
+  bottom: -150px; left: 0;
+}
+
+.hero-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--yellow);
+  color: var(--dark);
+  font-weight: 800;
+  font-size: 0.78rem;
+  padding: 6px 16px;
+  border-radius: 50px;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+  animation: fadeUp 0.7s ease both;
+}
+
+.hero h1 {
+  font-family: 'Righteous', sans-serif;
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  line-height: 1.08;
+  margin-bottom: 20px;
+  animation: fadeUp 0.7s 0.1s ease both;
+  color: var(--dark);
+}
+
+.hero h1 .grad {
+  background: linear-gradient(135deg, var(--orange), var(--pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-bottom: 36px;
+  max-width: 480px;
+  animation: fadeUp 0.7s 0.2s ease both;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  animation: fadeUp 0.7s 0.3s ease both;
+}
+
+.btn-main {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--orange), var(--pink));
+  color: #fff;
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 6px 24px rgba(255,107,53,0.38);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-main:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(255,107,53,0.5); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--text);
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  border: 2.5px solid var(--text);
+  transition: all 0.2s;
+}
+.btn-outline:hover { background: var(--dark); color: #fff; border-color: var(--dark); }
+
+/* Hero card mosaic */
+.hero-mosaic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 16px;
+  animation: fadeUp 0.7s 0.15s ease both;
+}
+
+.mosaic-card {
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s;
+}
+.mosaic-card:hover { transform: translateY(-5px) rotate(-1deg); }
+
+.mosaic-card:nth-child(1) { background: linear-gradient(135deg, #FFD600, #FF9800); }
+.mosaic-card:nth-child(2) { background: linear-gradient(135deg, #FF3CAC, #FF6B35); grid-row: span 2; border-radius: var(--radius); padding-top: 36px; }
+.mosaic-card:nth-child(3) { background: linear-gradient(135deg, #00BCD4, #2196F3); }
+
+.mc-emoji { font-size: 3rem; margin-bottom: 10px; }
+.mc-label { font-weight: 800; font-size: 1rem; color: #fff; }
+.mc-sub { font-size: 0.8rem; color: rgba(255,255,255,0.8); margin-top: 4px; }
+
+.mc-price {
+  font-family: 'Righteous', sans-serif;
+  font-size: 1.6rem;
+  color: #fff;
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+.mc-badge {
+  position: absolute;
+  top: 12px; right: 12px;
+  background: rgba(255,255,255,0.25);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 50px;
+  letter-spacing: 1px;
+}
+
+/* ===== STATS ===== */
+.stats-row {
+  background: var(--dark);
+  padding: 30px 60px;
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  flex-wrap: wrap;
+}
+
+.stat { text-align: center; }
+.stat-n {
+  font-family: 'Righteous', sans-serif;
+  font-size: 2.2rem;
+  display: block;
+}
+.stat:nth-child(1) .stat-n { color: var(--yellow); }
+.stat:nth-child(2) .stat-n { color: var(--pink); }
+.stat:nth-child(3) .stat-n { color: var(--teal); }
+.stat:nth-child(4) .stat-n { color: var(--green); }
+.stat-l { color: rgba(255,255,255,0.5); font-size: 0.78rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+
+/* ===== CATEGORY STRIP ===== */
+.cat-strip {
+  padding: 60px 60px 40px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.sec-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 36px; flex-wrap: wrap; gap: 16px; }
+.sec-tag {
+  display: inline-block;
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 50px;
+  margin-bottom: 10px;
+}
+.tag-orange { background: rgba(255,107,53,0.12); color: var(--orange); }
+.tag-pink { background: rgba(255,60,172,0.12); color: var(--pink); }
+.tag-blue { background: rgba(33,150,243,0.12); color: var(--blue); }
+.tag-green { background: rgba(0,200,83,0.12); color: var(--green); }
+
+.sec-title {
+  font-family: 'Righteous', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  color: var(--dark);
+  line-height: 1.1;
+}
+
+.view-all {
+  font-weight: 800;
+  color: var(--orange);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap 0.2s;
+}
+.view-all:hover { gap: 10px; }
+
+.cat-scroll {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 14px;
+}
+
+.cat-chip {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 20px 12px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  transition: all 0.25s;
+  border: 2px solid transparent;
+}
+.cat-chip:hover { transform: translateY(-5px); border-color: var(--orange); box-shadow: 0 10px 28px rgba(255,107,53,0.15); }
+
+.cat-chip-icon { font-size: 2rem; margin-bottom: 8px; display: block; }
+.cat-chip-name { font-weight: 800; font-size: 0.75rem; color: var(--text); }
+
+/* ===== PRODUCTS SECTION ===== */
+.products-wrap {
+  padding: 20px 60px 80px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.product-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.14);
+}
+
+.card-top {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  position: relative;
+}
+
+/* Color-coded tops per category */
+.top-electronics { background: linear-gradient(135deg, #E3F2FD, #BBDEFB); }
+.top-fashion { background: linear-gradient(135deg, #FCE4EC, #F8BBD0); }
+.top-home { background: linear-gradient(135deg, #E8F5E9, #C8E6C9); }
+.top-beauty { background: linear-gradient(135deg, #FFF3E0, #FFE0B2); }
+.top-sports { background: linear-gradient(135deg, #E0F7FA, #B2EBF2); }
+.top-books { background: linear-gradient(135deg, #F3E5F5, #E1BEE7); }
+.top-toys { background: linear-gradient(135deg, #FFFDE7, #FFF9C4); }
+.top-auto { background: linear-gradient(135deg, #EFEBE9, #D7CCC8); }
+
+.card-discount {
+  position: absolute;
+  top: 14px; left: 14px;
+  font-weight: 900;
+  font-size: 0.72rem;
+  padding: 5px 11px;
+  border-radius: 50px;
+  letter-spacing: 0.5px;
+}
+.disc-red { background: var(--red); color: #fff; }
+.disc-green { background: var(--green); color: #fff; }
+.disc-orange { background: var(--orange); color: #fff; }
+
+.wishlist-btn {
+  position: absolute;
+  top: 12px; right: 12px;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 34px; height: 34px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+.wishlist-btn:hover { transform: scale(1.15); }
+
+.card-body {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-cat {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+}
+
+.card-title {
+  font-weight: 700;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--dark);
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-stars { font-size: 0.82rem; color: #FFC107; margin-bottom: 12px; }
+.card-stars span { color: var(--muted); font-size: 0.75rem; margin-left: 4px; }
+
+.card-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.card-price {
+  font-family: 'Righteous', sans-serif;
+  font-size: 1.55rem;
+  color: var(--dark);
+}
+
+.card-was { font-size: 0.82rem; color: var(--muted); text-decoration: line-through; }
+
+.card-save {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--green);
+  background: rgba(0,200,83,0.1);
+  padding: 2px 8px;
+  border-radius: 50px;
+}
+
+.card-btn {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  background: linear-gradient(135deg, #FF9900, #FF6600);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(255,153,0,0.3);
+}
+.card-btn:hover { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 8px 22px rgba(255,153,0,0.45); }
+
+/* ===== DEAL OF THE DAY ===== */
+.dotd-section {
+  background: linear-gradient(135deg, var(--dark) 0%, #2D1B69 100%);
+  padding: 80px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.dotd-section::before {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,214,0,0.12) 0%, transparent 70%);
+  top: -150px; left: -100px;
+}
+.dotd-section::after {
+  content: '';
+  position: absolute;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,60,172,0.12) 0%, transparent 70%);
+  bottom: -100px; right: 100px;
+}
+
+.dotd-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.dotd-left { color: #fff; }
+.dotd-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--yellow);
+  color: var(--dark);
+  font-weight: 900;
+  font-size: 0.78rem;
+  padding: 7px 18px;
+  border-radius: 50px;
+  margin-bottom: 22px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  animation: pulse-badge 2s ease-in-out infinite;
+}
+
+@keyframes pulse-badge { 0%,100%{box-shadow:0 0 0 0 rgba(255,214,0,0.5)} 50%{box-shadow:0 0 0 10px rgba(255,214,0,0)} }
+
+.dotd-title {
+  font-family: 'Righteous', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  line-height: 1.05;
+  margin-bottom: 16px;
+}
+
+.dotd-title .hl { color: var(--yellow); }
+
+.dotd-desc { color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 28px; font-size: 0.95rem; }
+
+.dotd-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.dotd-price {
+  font-family: 'Righteous', sans-serif;
+  font-size: 3.5rem;
+  color: var(--yellow);
+  line-height: 1;
+}
+
+.dotd-was { color: rgba(255,255,255,0.4); text-decoration: line-through; font-size: 1.2rem; }
+
+.dotd-badge {
+  background: var(--red);
+  color: #fff;
+  font-weight: 900;
+  font-size: 0.82rem;
+  padding: 6px 14px;
+  border-radius: 50px;
+}
+
+/* Countdown Timer */
+.timer-row {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 36px;
+  align-items: center;
+}
+
+.timer-label { color: rgba(255,255,255,0.5); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+
+.timer-units { display: flex; gap: 10px; }
+
+.t-unit {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: 10px 14px;
+  text-align: center;
+  min-width: 56px;
+}
+.t-num {
+  font-family: 'Righteous', sans-serif;
+  font-size: 1.6rem;
+  color: var(--yellow);
+  display: block;
+  line-height: 1;
+}
+.t-sub { font-size: 0.6rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1px; display: block; margin-top: 4px; }
+
+.dotd-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #FF9900, #FF6600);
+  color: #fff;
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 16px 36px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 6px 24px rgba(255,153,0,0.4);
+  transition: all 0.2s;
+}
+.dotd-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(255,153,0,0.55); }
+
+/* DOTD Visual */
+.dotd-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dotd-img-box {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 28px;
+  width: 360px; height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12rem;
+  position: relative;
+  box-shadow: 0 0 80px rgba(255,214,0,0.2);
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+
+.dotd-badges {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  right: -20px;
+  top: 40px;
+}
+
+.dotd-mini-badge {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--dark);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  white-space: nowrap;
+}
+
+/* ===== TRENDING ===== */
+.trending-section {
+  background: linear-gradient(135deg, #FFF8F0, #FFF0FF);
+  padding: 80px 60px;
+}
+
+.trending-inner { max-width: 1280px; margin: 0 auto; }
+
+.trending-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 24px;
+}
+
+.trending-big {
+  background: linear-gradient(135deg, #FF3CAC, #784BA0, #2B86C5);
+  border-radius: 24px;
+  padding: 36px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 360px;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.3s;
+}
+.trending-big:hover { transform: scale(1.01); }
+
+.trending-big::before {
+  content: '';
+  position: absolute;
+  font-size: 14rem;
+  top: -20px; right: -10px;
+  opacity: 0.3;
+  line-height: 1;
+}
+
+.tb-emoji {
+  font-size: 7rem;
+  position: absolute;
+  top: 24px; right: 24px;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+  animation: float 4s ease-in-out infinite;
+}
+
+.tb-tag {
+  background: var(--yellow);
+  color: var(--dark);
+  font-weight: 900;
+  font-size: 0.65rem;
+  padding: 4px 12px;
+  border-radius: 50px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+
+.tb-title {
+  font-family: 'Righteous', sans-serif;
+  font-size: 1.9rem;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.tb-sub { color: rgba(255,255,255,0.7); font-size: 0.88rem; margin-bottom: 20px; }
+.tb-price-big { font-family: 'Righteous', sans-serif; font-size: 2rem; color: var(--yellow); }
+
+.trending-small {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s;
+}
+.trending-small:hover { transform: translateY(-6px); }
+
+.ts-top {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+}
+
+.ts-top-1 { background: linear-gradient(135deg, #E8F5E9, #A5D6A7); }
+.ts-top-2 { background: linear-gradient(135deg, #E3F2FD, #90CAF9); }
+
+.ts-body { padding: 18px; flex: 1; display: flex; flex-direction: column; }
+.ts-cat { font-size: 0.68rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+.ts-title { font-weight: 700; font-size: 0.9rem; line-height: 1.4; color: var(--dark); margin-bottom: 12px; }
+.ts-price { font-family: 'Righteous', sans-serif; font-size: 1.4rem; color: var(--dark); margin-bottom: 14px; }
+.ts-btn {
+  background: var(--dark);
+  color: #fff;
+  text-align: center;
+  font-weight: 800;
+  font-size: 0.82rem;
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  margin-top: auto;
+  transition: background 0.2s;
+}
+.ts-btn:hover { background: #333; }
+
+/* ===== NEWSLETTER ===== */
+.nl-section {
+  background: linear-gradient(135deg, var(--yellow) 0%, var(--orange) 50%, var(--pink) 100%);
+  padding: 80px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.nl-section::before {
+  content: '🛍️🎁💝✨🎉🛒💫';
+  position: absolute;
+  font-size: 4rem;
+  top: 10px; left: 0; right: 0;
+  letter-spacing: 30px;
+  opacity: 0.15;
+  white-space: nowrap;
+}
+
+.nl-inner { position: relative; z-index: 2; }
+.nl-title {
+  font-family: 'Righteous', sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+.nl-sub { color: rgba(0,0,0,0.6); font-size: 1rem; margin-bottom: 36px; font-weight: 600; }
+
+.nl-form {
+  display: flex;
+  gap: 12px;
+  max-width: 500px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.nl-input {
+  flex: 1;
+  padding: 16px 22px;
+  border-radius: 50px;
+  border: none;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  outline: none;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.nl-btn {
+  background: var(--dark);
+  color: #fff;
+  font-weight: 900;
+  font-size: 0.9rem;
+  padding: 16px 28px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.nl-btn:hover { background: #333; transform: translateY(-2px); }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--dark);
+  color: #fff;
+  padding: 60px 60px 30px;
+}
+
+.footer-grid {
+  max-width: 1280px;
+  margin: 0 auto 48px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+}
+
+.footer-logo {
+  font-family: 'Righteous', sans-serif;
+  font-size: 2.2rem;
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.footer-desc { color: rgba(255,255,255,0.45); font-size: 0.88rem; line-height: 1.75; max-width: 280px; margin-bottom: 20px; }
+
+.disclosure-box {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.6;
+}
+
+.footer-col h4 { font-size: 0.78rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 20px; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 12px; }
+.footer-col ul a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.88rem; font-weight: 600; transition: color 0.2s; }
+.footer-col ul a:hover { color: var(--yellow); }
+
+.footer-bottom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.3);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ===== REVEAL ===== */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@keyframes slidein { from{opacity:0;transform:translateY(-10px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 960px) {
+  nav { padding: 14px 20px; }
+  .nav-links { display: none; }
+  .hero { padding: 60px 20px; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-mosaic { display: none; }
+  .stats-row { gap: 30px; padding: 24px 20px; }
+  .cat-strip, .products-wrap { padding: 40px 20px; }
+  .cat-scroll { grid-template-columns: repeat(4, 1fr); }
+  .dotd-section { padding: 60px 20px; }
+  .dotd-inner { grid-template-columns: 1fr; }
+  .dotd-visual { display: none; }
+  .trending-section { padding: 60px 20px; }
+  .trending-grid { grid-template-columns: 1fr; }
+  .trending-big { min-height: 260px; }
+  .nl-section { padding: 60px 20px; }
+  .nl-form { flex-direction: column; }
+  footer { padding: 40px 20px 20px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">🔥 EXCLUSIVE AMAZON DEALS — Updated Daily! Free Shipping on ₹499+ Orders 🛒</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">ShopZone</div>
+  <ul class="nav-links">
+    <li><a href="#categories">Categories</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#deal">Deal of the Day</a></li>
+    <li><a href="#products" class="nav-cta">🛍 Shop Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-pill">🎉 New Deals Every Day</span>
+      <h1>Find <span class="grad">Amazing</span><br>Deals on<br>Amazon</h1>
+      <p class="hero-sub">From electronics to fashion, home decor to beauty — we handpick the best products with the biggest discounts, all in one place.</p>
+      <div class="hero-btns">
+        <a href="#products" class="btn-main">🛍️ Explore Deals</a>
+        <a href="#deal" class="btn-outline">⏰ Today's Deal</a>
+      </div>
+    </div>
+    <div class="hero-mosaic">
+      <div class="mosaic-card">
+        <span class="mc-emoji">📱</span>
+        <div class="mc-label">Electronics</div>
+        <div class="mc-sub">Latest Gadgets</div>
+        <div class="mc-price">From ₹999</div>
+        <span class="mc-badge">HOT</span>
+      </div>
+      <div class="mosaic-card">
+        <span class="mc-emoji">👗</span>
+        <div class="mc-label">Fashion</div>
+        <div class="mc-sub">Trending Styles</div>
+        <div class="mc-price">Up to 60% OFF</div>
+        <span class="mc-badge">NEW</span>
+      </div>
+      <div class="mosaic-card">
+        <span class="mc-emoji">🏠</span>
+        <div class="mc-label">Home & Living</div>
+        <div class="mc-sub">Best Sellers</div>
+        <div class="mc-price">From ₹299</div>
+        <span class="mc-badge">SALE</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-row">
+  <div class="stat"><span class="stat-n">1000+</span><span class="stat-l">Products Listed</span></div>
+  <div class="stat"><span class="stat-n">4.7★</span><span class="stat-l">Avg. Rating</span></div>
+  <div class="stat"><span class="stat-n">75K+</span><span class="stat-l">Happy Shoppers</span></div>
+  <div class="stat"><span class="stat-n">Daily</span><span class="stat-l">Deal Updates</span></div>
+</div>
+
+<!-- CATEGORIES -->
+<div id="categories" class="cat-strip">
+  <div class="sec-header">
+    <div>
+      <span class="sec-tag tag-orange">Browse by Category</span>
+      <h2 class="sec-title">Shop Everything</h2>
+    </div>
+    <a href="#products" class="view-all">View All →</a>
+  </div>
+  <div class="cat-scroll reveal">
+    <a href="#products" class="cat-chip"><span class="cat-chip-icon">📱</span><div class="cat-chip-name">Electronics</div></a>
+    <a href="#products" class="cat-chip"><span class="cat-chip-icon">👗</span><div class="cat-chip-name">Fashion</div></a>
+    <a href="#products" class="cat-chip"><span class="cat-chip-icon">🏠</span><div class="cat-chip-name">Home</div></a>
+    <a href="#products" class="cat-chip"><span class="cat-chip-icon">💄</span><div class="cat-chip-name">Beauty</div></a>
+    <a href="#products" class="cat-chip"><span class="cat-chip-icon">🏋️</span><div class="cat-chip-name">Sports</div></a>
+    <a href="#products" class="cat-chip"><span class="cat-chip-icon">📚</span><div class="cat-chip-name">Books</div></a>
+    <a href="#products" class="cat-chip"><span class="cat-chip-icon">🧸</span><div class="cat-chip-name">Toys</div></a>
+    <a href="#products" class="cat-chip"><span class="cat-chip-icon">🚗</span><div class="cat-chip-name">Auto</div></a>
+  </div>
+</div>
+
+<!-- PRODUCT GRID -->
+<div id="products" class="products-wrap">
+  <div class="sec-header">
+    <div>
+      <span class="sec-tag tag-pink">🔥 Hot Right Now</span>
+      <h2 class="sec-title">Top Picks for You</h2>
+    </div>
+  </div>
+  <div class="products-grid">
+
+    <!-- Replace ALL href values with your Amazon affiliate links -->
+
+    <div class="product-card reveal">
+      <div class="card-top top-electronics">📱<span class="card-discount disc-red">-40% OFF</span><button class="wishlist-btn">🤍</button></div>
+      <div class="card-body">
+        <div class="card-cat" style="color:var(--blue)">Electronics</div>
+        <div class="card-title">Redmi 12 5G Smartphone — 4GB RAM, 128GB, Midnight Black</div>
+        <div class="card-stars">★★★★☆ <span>(32,450 ratings)</span></div>
+        <div class="card-price-row"><span class="card-price">₹10,999</span><span class="card-was">₹18,999</span><span class="card-save">Save ₹8,000</span></div>
+        <a href="https://www.amazon.in" target="_blank" rel="noopener noreferrer" class="card-btn">🛒 Buy on Amazon</a>
+      </div>
+    </div>
+
+    <div class="product-card reveal" style="transition-delay:0.08s">
+      <div class="card-top top-fashion">👗<span class="card-discount disc-orange">-55% OFF</span><button class="wishlist-btn">🤍</button></div>
+      <div class="card-body">
+        <div class="card-cat" style="color:var(--pink)">Fashion</div>
+        <div class="card-title">Women's Floral Maxi Dress — Casual Summer Wear, S–3XL</div>
+        <div class="card-stars">★★★★★ <span>(8,920 ratings)</span></div>
+        <div class="card-price-row"><span class="card-price">₹699</span><span class="card-was">₹1,599</span><span class="card-save">Save ₹900</span></div>
+        <a href="https://www.amazon.in" target="_blank" rel="noopener noreferrer" class="card-btn">🛒 Buy on Amazon</a>
+      </div>
+    </div>
+
+    <div class="product-card reveal" style="transition-delay:0.16s">
+      <div class="card-top top-home">🍳<span class="card-discount disc-red">-35% OFF</span><button class="wishlist-btn">🤍</button></div>
+      <div class="card-body">
+        <div class="card-cat" style="color:var(--green)">Home & Kitchen</div>
+        <div class="card-title">Prestige Hard Anodised Non-Stick Kadai 3L with Glass Lid</div>
+        <div class="card-stars">★★★★★ <span>(56,200 ratings)</span></div>
+        <div class="card-price-row"><span class="card-price">₹799</span><span class="card-was">₹1,250</span><span class="card-save">Save ₹451</span></div>
+        <a href="https://www.amazon.in" target="_blank" rel="noopener noreferrer" class="card-btn">🛒 Buy on Amazon</a>
+      </div>
+    </div>
+
+    <div class="product-card reveal" style="transition-delay:0.24s">
+      <div class="card-top top-beauty">💄<span class="card-discount disc-orange">-30% OFF</span><button class="wishlist-btn">🤍</button></div>
+      <div class="card-body">
+        <div class="card-cat" style="color:var(--orange)">Beauty</div>
+        <div class="card-title">Lakme Eyeconic Kajal — Intense Black, Smudge-proof, 12hr</div>
+        <div class="card-stars">★★★★★ <span>(121k ratings)</span></div>
+        <div class="card-price-row"><span class="card-price">₹175</span><span class="card-was">₹250</span><span class="card-save">Save ₹75</span></div>
+        <a href="https://www.amazon.in" target="_blank" rel="noopener noreferrer" class="card-btn">🛒 Buy on Amazon</a>
+      </div>
+    </div>
+
+    <div class="product-card reveal">
+      <div class="card-top top-sports">🏋️<span class="card-discount disc-red">-45% OFF</span><button class="wishlist-btn">🤍</button></div>
+      <div class="card-body">
+        <div class="card-cat" style="color:var(--teal)">Sports & Fitness</div>
+        <div class="card-title">Boldfit Gym Bag with Shoes Compartment — 45L Waterproof</div>
+        <div class="card-stars">★★★★☆ <span>(14,780 ratings)</span></div>
+        <div class="card-price-row"><span class="card-price">₹799</span><span class="card-was">₹1,499</span><span class="card-save">Save ₹700</span></div>
+        <a href="https://www.amazon.in" target="_blank" rel="noopener noreferrer" class="card-btn">🛒 Buy on Amazon</a>
+      </div>
+    </div>
+
+    <div class="product-card reveal" style="transition-delay:0.08s">
+      <div class="card-top top-books">📚<span class="card-discount disc-green">-20% OFF</span><button class="wishlist-btn">🤍</button></div>
+      <div class="card-body">
+        <div class="card-cat" style="color:var(--purple)">Books</div>
+        <div class="card-title">Atomic Habits by James Clear — Paperback, English</div>
+        <div class="card-stars">★★★★★ <span>(48,900 ratings)</span></div>
+        <div class="card-price-row"><span class="card-price">₹399</span><span class="card-was">₹499</span><span class="card-save">Save ₹100</span></div>
+        <a href="https://www.amazon.in" target="_blank" rel="noopener noreferrer" class="card-btn">🛒 Buy on Amazon</a>
+      </div>
+    </div>
+
+    <div class="product-card reveal" style="transition-delay:0.16s">
+      <div class="card-top top-toys">🧸<span class="card-discount disc-orange">-50% OFF</span><button class="wishlist-btn">🤍</button></div>
+      <div class="card-body">
+        <div class="card-cat" style="color:var(--yellow)" style="color:#c9a000">Toys & Games</div>
+        <div class="card-title">LEGO Classic Creative Bricks 484 Pieces — Ages 4+ Colorful Set</div>
+        <div class="card-stars">★★★★★ <span>(9,340 ratings)</span></div>
+        <div class="card-price-row"><span class="card-price">₹1,499</span><span class="card-was">₹2,999</span><span class="card-save">Save ₹1,500</span></div>
+        <a href="https://www.amazon.in" target="_blank" rel="noopener noreferrer" class="card-btn">🛒 Buy on Amazon</a>
+      </div>
+    </div>
+
+    <div class="product-card reveal" style="transition-delay:0.24s">
+      <div class="card-top top-auto">🚗<span class="card-discount disc-red">-25% OFF</span><button class="wishlist-btn">🤍</button></div>
+      <div class="card-body">
+        <div class="card-cat" style="color:#795548">Automotive</div>
+        <div class="card-title">WOSCHER Car Vacuum Cleaner 12V Wet & Dry — 4000PA Suction</div>
+        <div class="card-stars">★★★★☆ <span>(23,110 ratings)</span></div>
+        <div class="card-price-row"><span class="card-price">₹649</span><span class="card-was">₹899</span><span class="card-save">Save ₹250</span></div>
+        <a href="https://www.amazon.in" target="_blank" rel="noopener noreferrer" class="card-btn">🛒 Buy on Amazon</a>
+      </div>
+    </div>
+
+    <div class="product-card reveal">
+      <div class="card-top top-electronics">
+        📱
+        <span class="card-discount disc-red">-30% OFF</span>
+        <button class="wishlist-btn">🤍</button>
+      </div>
+      <div class="card-body">
+        <div class="card-cat" style="color:var(--blue)">Electronics</div>
+        <div class="card-title">YOUR PRODUCT NAME HERE</div>
+        <div class="card-stars">★★★★★ <span>(5,000 ratings)</span></div>
+        <div class="card-price-row">
+          <span class="card-price">₹999</span>
+          <span class="card-was">₹1,499</span>
+          <span class="card-save">Save ₹500</span>
+        </div>
+        <a href="YOUR AFFILIATE LINK HERE" target="_blank" rel="noopener noreferrer" class="card-btn">🛒 Buy on Amazon</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- DEAL OF THE DAY -->
+<section id="deal" class="dotd-section">
+  <div class="dotd-inner">
+    <div class="dotd-left">
+      <span class="dotd-tag">⚡ Deal of the Day</span>
+      <h2 class="dotd-title">boAt Rockerz 450 <span class="hl">Bluetooth</span> Headphones</h2>
+      <p class="dotd-desc">Experience powerful 40mm drivers with 15 hours of battery life. Foldable design with plush ear cushions for all-day comfort. Compatible with all devices.</p>
+      <div class="dotd-price-row">
+        <span class="dotd-price">₹1,299</span>
+        <span class="dotd-was">₹3,990</span>
+        <span class="dotd-badge">67% OFF</span>
+      </div>
+      <div class="timer-row">
+        <span class="timer-label">Ends in:</span>
+        <div class="timer-units">
+          <div class="t-unit"><span class="t-num" id="th">08</span><span class="t-sub">HRS</span></div>
+          <div class="t-unit"><span class="t-num" id="tm">34</span><span class="t-sub">MIN</span></div>
+          <div class="t-unit"><span class="t-num" id="ts">22</span><span class="t-sub">SEC</span></div>
+        </div>
+      </div>
+      <!-- Replace with your Amazon affiliate link -->
+      <a href="https://www.amazon.in" target="_blank" rel="noopener noreferrer" class="dotd-btn">🛒 Grab This Deal</a>
+    </div>
+    <div class="dotd-visual">
+      <div class="dotd-img-box">
+        🎧
+        <div class="dotd-badges">
+          <div class="dotd-mini-badge">🏆 Amazon's Choice</div>
+          <div class="dotd-mini-badge">⭐ 4.3 / 5 Stars</div>
+          <div class="dotd-mini-badge">🚀 10K+ Sold Today</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRENDING -->
+<section class="trending-section">
+  <div class="trending-inner">
+    <div class="sec-header">
+      <div>
+        <span class="sec-tag tag-blue">📈 What's Trending</span>
+        <h2 class="sec-title">Trending This Week</h2>
+      </div>
+    </div>
+    <div class="trending-grid reveal">
+      <!-- Replace href with your affiliate link -->
+      <a href="https://www.amazon.in" target="_blank" rel="noopener noreferrer" class="trending-big">
+        <span class="tb-emoji">💻</span>
+        <span class="tb-tag">⚡ Best Seller</span>
+        <div class="tb-title">HP 15 Laptop Intel Core i5 15.6" FHD</div>
+        <div class="tb-sub">8GB RAM • 512GB SSD • Windows 11</div>
+        <div class="tb-price-big">₹45,990</div>
+      </a>
+      <div class="trending-small">
+        <div class="ts-top ts-top-1">🌿</div>
+        <div class="ts-body">
+          <div class="ts-cat" style="color:var(--green)">Health</div>
+          <div class="ts-title">Himalaya Ashvagandha Tablet — 60 Tabs, Stress Relief</div>
+          <div class="ts-price">₹180</div>
+          <a href="https://www.amazon.in" target="_blank" rel="noopener noreferrer" class="ts-btn">View on Amazon</a>
+        </div>
+      </div>
+      <div class="trending-small">
+        <div class="ts-top ts-top-2">⌚</div>
+        <div class="ts-body">
+          <div class="ts-cat" style="color:var(--blue)">Wearables</div>
+          <div class="ts-title">Noise ColorFit Ultra 3 Bluetooth Calling Smartwatch</div>
+          <div class="ts-price">₹2,999</div>
+          <a href="https://www.amazon.in" target="_blank" rel="noopener noreferrer" class="ts-btn">View on Amazon</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="nl-section">
+  <div class="nl-inner">
+    <h2 class="nl-title">🎁 Get Deals in Your Inbox!</h2>
+    <p class="nl-sub">Subscribe and be first to know about flash sales, discount coupons & new arrivals.</p>
+    <div class="nl-form">
+      <input type="email" class="nl-input" placeholder="Your email address...">
+      <button class="nl-btn" onclick="alert('🎉 Subscribed! Get ready for amazing deals!')">Subscribe Free</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <span class="footer-logo">ShopZone</span>
+      <p class="footer-desc">Your go-to destination for the best Amazon deals across every category. We curate, you save.</p>
+      <div class="disclosure-box">
+        <strong style="color:rgba(255,255,255,0.6)">Affiliate Disclosure:</strong> ShopZone participates in the Amazon Associates Program. We earn a small commission on qualifying purchases — at no extra cost to you. All prices shown are from Amazon.
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <ul>
+        <li><a href="#">Electronics</a></li>
+        <li><a href="#">Fashion</a></li>
+        <li><a href="#">Home & Kitchen</a></li>
+        <li><a href="#">Beauty</a></li>
+        <li><a href="#">Sports</a></li>
+        <li><a href="#">Books</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Disclaimer</a></li>
+        <li><a href="#">Sitemap</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <ul>
+        <li><a href="#">📸 Instagram</a></li>
+        <li><a href="#">📘 Facebook</a></li>
+        <li><a href="#">🐦 Twitter / X</a></li>
+        <li><a href="#">▶️ YouTube</a></li>
+        <li><a href="#">💬 WhatsApp Channel</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 ShopZone. All rights reserved.</span>
+    <span>Amazon Associate | Prices subject to change</span>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  reveals.forEach(r => io.observe(r));
+
+  // Wishlist toggle
+  document.querySelectorAll('.wishlist-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.textContent = btn.textContent === '🤍' ? '❤️' : '🤍';
+    });
+  });
+
+  // Countdown timer
+  let totalSecs = 8 * 3600 + 34 * 60 + 22;
+  function tick() {
+    if (totalSecs <= 0) return;
+    totalSecs--;
+    const h = Math.floor(totalSecs / 3600);
+    const m = Math.floor((totalSecs % 3600) / 60);
+    const s = totalSecs % 60;
+    document.getElementById('th').textContent = String(h).padStart(2,'0');
+    document.getElementById('tm').textContent = String(m).padStart(2,'0');
+    document.getElementById('ts').textContent = String(s).padStart(2,'0');
+  }
+  setInterval(tick, 1000);
+
+  // Sticky nav shadow
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.boxShadow =
+      window.scrollY > 50 ? '0 4px 24px rgba(0,0,0,0.12)' : '0 2px 20px rgba(0,0,0,0.08)';
+  });
+</script>
+</body>
+</html>
